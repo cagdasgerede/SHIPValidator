@@ -25,7 +25,7 @@ import org.junit.Test;
  * @author Dag Hovland and Federico Mancini
  *
  */
-public class CrossPropertyAnnotationTest {
+public class TestCrossPropertyAnnotation {
 
 	private CrossPropertyAnnotation ca;
 

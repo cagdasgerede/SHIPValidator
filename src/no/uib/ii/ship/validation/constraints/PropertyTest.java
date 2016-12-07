@@ -90,7 +90,8 @@ public class PropertyTest {
 			boolean hasRequired = met.isAnnotationPresent(Required.class);
 			boolean hasNotRequired = met.isAnnotationPresent(NotRequired.class);
 			if(hasRequired || hasNotRequired){
-				Annotation nullTestAnnot = (Annotation) met.getAnnotation(hasRequired ? Required.class : NotRequired.class);
+				Class<? extends Annotation> klazz = hasRequired ? Required.class : NotRequired.class;
+				Annotation nullTestAnnot = (Annotation) met.getAnnotation(klazz);
 				return Arrays.asList(nullTestAnnot);
 			}
 		}

@@ -18,7 +18,7 @@ import org.junit.Test;
  * @author Dag Hovland and Federico Mancini
  *
  */
-public class WebformTest {
+public class TestWebform {
 
 	private IValidator val;
 	/**

@@ -7,17 +7,20 @@
   <property name="test.class.name" value="no.uib.ii.ship.validation.AllTests" />
   <path id="test.classpath">
     <pathelement location="${classes}" />
-    <pathelement location="/usr/local/eclipse/plugins/org.junit4_4.3.1/junit.jar" />
+    <pathelement location="lib/junit-4.12.jar" />
+    <pathelement location="lib/hamcrest-core-1.3.jar" />
+    <!--<pathelement location="/usr/local/eclipse/plugins/org.junit4_4.3.1/junit.jar" />-->
   </path>
   
   <target name="test">
     <junit fork="yes" haltonfailure="yes">
-      <test name="${test.class.name}" />
+<!--      <test name="${test.class.name}" /> -->
       <formatter type="plain" usefile="false" />
       <classpath refid="test.classpath" />
       <batchtest fork="yes">
-	<fileset dir="${test}">
-	  <include name="**/*Test.java" />
+	<!--<fileset dir="${test}">-->
+	<fileset dir="./src">
+	  <!--<include name="**/*Test.java" />-->
 	  <include name="**/Test*.java" />
 	</fileset>
       </batchtest>
@@ -35,7 +38,7 @@
     <echo>Running Webform</echo>
     <java classname="no.uib.ii.ship.validation.test.Webform" classpath="bin" />
     <echo>Running inputval</echo>
-    <java classname="no.uib.ii.ship.validation.test.inputval" classpath="bin/" />
+    <java classname="no.uib.ii.ship.validation.test.Inputval" classpath="bin/" />
   </target>
   <target name="javadoc">
    <echo>Generating javadoc</echo>

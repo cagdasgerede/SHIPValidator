@@ -18,7 +18,7 @@ import org.junit.Test;
  * @author Dag Hovland and Federico Mancini
  *
  */
-public class SummaryNodeTest {
+public class TestSummaryNode {
 
 	private AnnotationSummary snull, sn1;
 
