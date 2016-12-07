@@ -1,3 +1,6 @@
+Fork of https://sourceforge.net/projects/shipvalidator
+
+
 ------------------------------------------
                Version 0.3
 -------------------------------------------
