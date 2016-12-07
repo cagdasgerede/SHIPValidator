@@ -1,0 +1,44 @@
+<project name="AnnotationValidation" default="compile" basedir="./">
+
+  <!-- First parts taken from junit FAQ -->
+  <property name="src" value="./src" />
+  <property name="test" value="./test" />
+  <property name="classes" value="./bin" />
+  <property name="test.class.name" value="no.uib.ii.ship.validation.AllTests" />
+  <path id="test.classpath">
+    <pathelement location="${classes}" />
+    <pathelement location="/usr/local/eclipse/plugins/org.junit4_4.3.1/junit.jar" />
+  </path>
+  
+  <target name="test">
+    <junit fork="yes" haltonfailure="yes">
+      <test name="${test.class.name}" />
+      <formatter type="plain" usefile="false" />
+      <classpath refid="test.classpath" />
+      <batchtest fork="yes">
+	<fileset dir="${test}">
+	  <include name="**/*Test.java" />
+	  <include name="**/Test*.java" />
+	</fileset>
+      </batchtest>
+    </junit>
+  </target>
+  
+
+
+
+  <target name="compile">
+    <echo>Validator is building</echo>
+    <javac srcdir="src"  destdir="bin"/>
+  </target>
+  <target name="runtests" depends="compile">
+    <echo>Running Webform</echo>
+    <java classname="no.uib.ii.ship.validation.test.Webform" classpath="bin" />
+    <echo>Running inputval</echo>
+    <java classname="no.uib.ii.ship.validation.test.inputval" classpath="bin/" />
+  </target>
+  <target name="javadoc">
+   <echo>Generating javadoc</echo>
+   <javadoc sourcepath="src" destdir="doc" packagenames="no.uib.ii.ship.validation.*" />
+  </target>
+</project>
